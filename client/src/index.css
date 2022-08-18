@@ -1,0 +1,220 @@
+:root {
+  --primary: #D81E5B;
+  --secondary: #8A4EFC;
+  --light: #EEE;
+  --light-alt: #61759b;
+  --dark: #131A26;
+  --dark-alt: #202B3E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body {
+  background-color: var(--dark-alt);
+  color: var(--light);
+}
+
+.app {
+  padding:  32px 32px 48px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+h4 {
+  font-size: 18px;
+  color: var(--light-alt);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.todo {
+  position: relative;
+  background-color: var(--dark);
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-bottom: 16px;
+  animation: landing 1s linear 1;
+}
+
+.todo:hover {
+  opacity: 0.8;
+}
+
+.todo.is-complete .todo-checkbox{
+  background-color: var(--primary);
+  background-image: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.todo .todo-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 16px;
+  border-radius: 999px;
+  background-color: var(--dark-alt);
+  transition: 0.4s;
+}
+
+.todo .todo-text {
+  font-size: 20px;
+}
+
+.todo.is-complete .todo-text {
+  text-decoration: line-through;
+}
+
+.todo .todo-delete {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: #AF1E2D;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-todo-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+}
+
+.new-todo-content {
+  position: relative;
+  padding: 48px 32px;
+  background-color: var(--light);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-todo-content h4 {
+  color: var(--dark);
+  margin-bottom: 30px;
+}
+
+.new-todo-content .close-new-todo {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  background-color: #AF1E2D;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.new-todo-content .new-todo-input {
+  height: 46px;
+  width: 100%;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 2px 12px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  box-shadow: 0px 2px 24px rgba(0,0,0,0.2);
+  border: none;
+  outline: none;
+}
+
+.new-todo-content .new-todo-button {
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 16px;
+  border: none;
+  color: var(--light);
+  background-image: linear-gradient(to right, var(--primary), var(--secondary));
+  cursor: pointer;
+}
+
+.plus-popup {
+  font-size: 46px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  color: var(--light);
+  border-radius: 50%;
+  background-image: linear-gradient(to right, var(--primary), var(--secondary));
+  cursor: pointer;
+  animation: pulse-button 2s linear infinite;
+}
+
+@keyframes landing {
+  0% {
+    margin-top: 40px;
+    /* transform: rotateZ(-5deg); */
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-button {
+  0% {
+    transform: scale(1.1);
+  }
+  25% {
+    background-image: linear-gradient(to top, var(--primary), var(--secondary));
+  }
+  50% {
+    transform: scale(0.9);
+    background-image: linear-gradient(to left, var(--primary), var(--secondary));
+  }
+  75% {
+    background-image: linear-gradient(to bottom, var(--primary), var(--secondary));
+  }
+  100% {
+    transform: scale(1.1);
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .app {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .plus-popup {
+    bottom: 50px;
+    right: 50px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .app {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+
+
